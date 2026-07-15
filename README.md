@@ -29,7 +29,7 @@ Aplicación Full Stack para la gestión y administración de clientes, desarroll
 ### 1. Clonar el repositorio
 
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/jescobar-2025070/clientes-app
 cd clientes-app
 ```
 
