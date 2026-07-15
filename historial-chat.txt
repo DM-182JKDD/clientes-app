@@ -1,0 +1,4349 @@
+opencode -s ses_0ac6d519cffeKdoFf0Fswq8vRD
+================================================================================
+                    HISTORIAL DEL CHAT - CLIENTES APP
+                         Fecha: 11 de julio de 2026
+================================================================================
+
+USUARIO:
+Actúa como un **Ingeniero de Software Senior** especializado en **TypeScript, Angular, Node.js, Express y PostgreSQL**.
+
+Desarrolla una aplicación **Full Stack** para la **Administración de Clientes**, implementando buenas prácticas de arquitectura, Clean Code, principios SOLID y una correcta separación de responsabilidades.
+
+El resultado debe ser un proyecto completamente funcional, listo para instalar y ejecutar.
+
+---
+
+# Tecnologías obligatorias
+
+## Backend
+
+* Node.js
+* Express
+* TypeScript (Strict Mode)
+* PostgreSQL
+* pnpm
+* Arquitectura MVC
+* async/await
+* Interfaces
+* DTOs
+* Type Alias cuando sea necesario
+* Variables de entorno (.env)
+* Manejo centralizado de errores
+
+## Frontend
+
+* Angular (última versión estable)
+* TypeScript
+* Standalone Components
+* HttpClient
+* Reactive Forms
+* Signals cuando sean apropiados
+* CSS moderno (sin Bootstrap ni Tailwind)
+* Responsive Design
+
+---
+
+# Arquitectura del proyecto
+
+El proyecto debe estar organizado como un **Monorepo** utilizando **pnpm Workspaces**.
+
+No modifiques la siguiente estructura.
+
+```text
+clientes-app/
+│
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── persistence/
+│   │   ├── routes/
+│   │   └── app.ts
+│   │
+│   ├── data/
+│   │   └── clientes.json
+│   │
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── cliente-form/
+│   │   │   └── cliente-list/
+│   │   │
+│   │   ├── models/
+│   │   ├── services/
+│   │   ├── app.component.ts
+│   │   └── main.ts
+│   │
+│   ├── angular.json
+│   └── package.json
+│
+├── package.json
+├── pnpm-workspace.yaml
+├── .gitignore
+├── .env.example
+└── README.md
+```
+
+---
+
+# Organización
+
+## Backend
+
+Toda la lógica del servidor debe permanecer únicamente dentro de la carpeta **backend**.
+
+La estructura debe respetarse exactamente.
+
+Cada carpeta tendrá la siguiente responsabilidad:
+
+* controllers → lógica de negocio y respuestas HTTP.
+* models → Interfaces, DTOs y modelos.
+* persistence → acceso a PostgreSQL.
+* routes → definición de endpoints.
+* app.ts → configuración principal de Express.
+
+---
+
+## Frontend
+
+Toda la aplicación Angular debe permanecer únicamente dentro de la carpeta **frontend**.
+
+### components
+
+Debe contener:
+
+* cliente-form
+* cliente-list
+
+### models
+
+Debe ser un espejo de los modelos del backend.
+
+### services
+
+Debe contener toda la comunicación con la API utilizando **HttpClient**.
+
+No colocar llamadas HTTP dentro de los componentes.
+
+---
+
+# Base de datos
+
+Utilizar PostgreSQL.
+
+Toda la base de datos debe seguir la convención **snake_case**.
+
+Ejemplo:
+
+Tabla:
+
+```text
+clientes
+```
+
+Columnas:
+
+```text
+codigo_cliente
+nombre_cliente
+direccion_cliente
+telefono_cliente
+```
+
+En TypeScript utilizar **camelCase**.
+
+Ejemplo:
+
+```ts
+codigoCliente
+nombreCliente
+direccionCliente
+telefonoCliente
+```
+
+---
+
+# Modelo Cliente
+
+Debe contener:
+
+* codigo_cliente
+* nombre_cliente
+* direccion_cliente
+* telefono_cliente
+
+---
+
+# Funcionalidades
+
+Implementar un CRUD completo.
+
+## Backend
+
+Debe incluir:
+
+* Obtener todos los clientes
+* Obtener cliente por código
+* Crear cliente
+* Actualizar cliente
+* Eliminar cliente
+
+Validaciones:
+
+* Todos los campos son obligatorios.
+* No permitir códigos duplicados.
+* Validar longitud del teléfono.
+* Manejo correcto de errores.
+* Respuestas HTTP apropiadas.
+
+---
+
+## Frontend
+
+### cliente-form
+
+Debe permitir:
+
+* Crear clientes
+* Editar clientes
+
+Utilizar:
+
+* Reactive Forms
+* Validaciones
+* Mensajes de error
+
+---
+
+### cliente-list
+
+Mostrar una tabla con:
+
+* Código
+* Nombre
+* Dirección
+* Teléfono
+* Editar
+* Eliminar
+
+Agregar:
+
+* Confirmación antes de eliminar.
+* Indicadores de carga.
+* Mensajes de éxito y error.
+
+---
+
+# API REST
+
+Implementar los siguientes endpoints:
+
+```text
+GET      /clientes
+GET      /clientes/:codigo
+POST     /clientes
+PUT      /clientes/:codigo
+DELETE   /clientes/:codigo
+```
+
+---
+
+# Persistencia
+
+Los datos deben almacenarse en PostgreSQL.
+
+La carpeta:
+
+```text
+backend/data/clientes.json
+```
+
+debe mantenerse únicamente como archivo de respaldo o datos de ejemplo (seed), sin modificar la estructura del proyecto.
+
+---
+
+# Diseño de la interfaz
+
+Crear una interfaz moderna orientada al sector empresarial.
+
+Características:
+
+* Paleta de colores oscuros.
+* Diseño minimalista.
+* Tarjetas modernas.
+* Formularios elegantes.
+* Tabla profesional.
+* Responsive.
+* Sombras suaves.
+* Bordes redondeados.
+* Tipografía profesional.
+* Animaciones sutiles.
+
+No utilizar Bootstrap.
+
+No utilizar Tailwind.
+
+Utilizar únicamente CSS moderno.
+
+---
+
+# Calidad del código
+
+Todo el proyecto debe desarrollarse utilizando:
+
+* TypeScript moderno.
+* Strict Mode.
+* Interfaces.
+* DTOs.
+* Código limpio.
+* Funciones pequeñas.
+* Principios SOLID.
+* Arquitectura MVC.
+* async/await.
+* Separación de responsabilidades.
+* Tipado fuerte.
+
+No utilizar:
+
+* any
+* código duplicado
+* lógica mezclada entre capas
+* variables globales
+
+---
+
+# Configuración del proyecto
+
+El proyecto debe incluir:
+
+* package.json en la raíz.
+* package.json para backend.
+* package.json para frontend.
+* pnpm-workspace.yaml.
+* .env.example.
+* .gitignore.
+* README.md con instrucciones completas.
+
+---
+
+# Ejecución
+
+El proyecto debe ejecutarse con un único comando desde la raíz del repositorio.
+
+Ejemplo:
+
+```bash
+pnpm install
+pnpm dev
+```
+
+El comando debe iniciar simultáneamente:
+
+* Backend.
+* Frontend.
+
+Utiliza **pnpm Workspaces** junto con **concurrently** (o una herramienta equivalente) para lograr una única ejecución.
+
+---
+
+# Resultado esperado
+
+Genera un proyecto completamente funcional, sin omitir archivos importantes.
+
+Incluye:
+
+* estructura completa de carpetas;
+* código fuente completo;
+* configuración de PostgreSQL;
+* scripts de instalación y ejecución;
+* archivo `.env.example`;
+* README con instrucciones detalladas;
+* conexión completa entre Angular y Node.js;
+* interfaz profesional lista para producción.
+
+No dejes código incompleto, comentarios como "TODO" ni fragmentos sin implementar. Todo debe quedar listo para instalar con `pnpm install` y ejecutar con `pnpm dev`.
+
+================================================================================
+
+ASISTENTE:
+I'll create this full-stack application step by step. Let me start by setting up the project structure.
+
+## PASO 1: Creación del directorio
+
+```bash
+mkdir -p /home/mj_ddk/gestion/clientes-app/backend/src/{controllers,models,persistence,routes} \
+         /home/mj_ddk/gestion/clientes-app/backend/data \
+         /home/mj_ddk/gestion/clientes-app/frontend/src/{components/{cliente-form,cliente-list},models,services}
+```
+
+## PASO 2: Archivos raíz del proyecto
+
+### package.json (raíz)
+```json
+{
+  "name": "clientes-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplicación Full Stack para la Administración de Clientes",
+  "scripts": {
+    "dev": "concurrently --names \"BACKEND,FRONTEND\" --prefix-colors \"blue,green\" \"pnpm --filter backend dev\" \"pnpm --filter frontend start\"",
+    "install:all": "pnpm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
+```
+
+### pnpm-workspace.yaml
+```yaml
+packages:
+  - "backend"
+  - "frontend"
+```
+
+### .env.example
+```
+# Backend Configuration
+PORT=3000
+
+# PostgreSQL Configuration
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=clientes_db
+```
+
+### .gitignore
+```
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+.angular/
+out-tsc/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+```
+
+### README.md
+```markdown
+# Clientes App - Administración de Clientes
+
+Aplicación Full Stack para la gestión y administración de clientes, desarrollada con Angular y Node.js/Express.
+
+## Tecnologías
+
+### Backend
+- Node.js
+- Express
+- TypeScript (Strict Mode)
+- PostgreSQL
+- Arquitectura MVC
+
+### Frontend
+- Angular (Última versión estable)
+- TypeScript
+- Standalone Components
+- Reactive Forms
+- CSS Moderno
+
+## Prerrequisitos
+
+- Node.js >= 18.0.0
+- pnpm >= 8.0.0
+- PostgreSQL >= 14.0.0
+
+## Instalación
+
+### 1. Clonar el repositorio
+
+```bash
+git clone <url-del-repositorio>
+cd clientes-app
+```
+
+### 2. Configurar variables de entorno
+
+```bash
+cp .env.example .env
+```
+
+Editar el archivo `.env` con los datos de conexión a PostgreSQL:
+
+```env
+PORT=3000
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=tu_usuario
+DB_PASSWORD=tu_contraseña
+DB_NAME=clientes_db
+```
+
+### 3. Crear la base de datos
+
+Conectar a PostgreSQL y ejecutar:
+
+```sql
+CREATE DATABASE clientes_db;
+```
+
+### 4. Instalar dependencias
+
+```bash
+pnpm install
+```
+
+### 5. Inicializar la base de datos
+
+```bash
+pnpm --filter backend db:init
+```
+
+## Ejecución
+
+Para iniciar el proyecto completo (backend y frontend):
+
+```bash
+pnpm dev
+```
+
+Esto iniciará:
+- Backend en http://localhost:3000
+- Frontend en http://localhost:4200
+
+## Estructura del Proyecto
+
+```
+clientes-app/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/    # Lógica de negocio y respuestas HTTP
+│   │   ├── models/         # Interfaces, DTOs y modelos
+│   │   ├── persistence/    # Acceso a PostgreSQL
+│   │   ├── routes/         # Definición de endpoints
+│   │   └── app.ts          # Configuración principal de Express
+│   ├── data/
+│   │   └── clientes.json   # Datos de ejemplo
+│   └── package.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── cliente-form/
+│   │   │   └── cliente-list/
+│   │   ├── models/
+│   │   ├── services/
+│   │   ├── app.component.ts
+│   │   └── main.ts
+│   └── package.json
+├── package.json
+├── pnpm-workspace.yaml
+├── .env.example
+└── README.md
+```
+
+## API REST
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | /clientes | Obtener todos los clientes |
+| GET | /clientes/:codigo | Obtener cliente por código |
+| POST | /clientes | Crear nuevo cliente |
+| PUT | /clientes/:codigo | Actualizar cliente |
+| DELETE | /clientes/:codigo | Eliminar cliente |
+
+## Modelo de Datos
+
+### Cliente
+
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| codigo_cliente | INTEGER | Código único del cliente (PK) |
+| nombre_cliente | VARCHAR(100) | Nombre del cliente |
+| direccion_cliente | VARCHAR(200) | Dirección del cliente |
+| telefono_cliente | VARCHAR(20) | Teléfono del cliente |
+
+## Desarrollo
+
+### Backend
+
+```bash
+pnpm --filter backend dev
+```
+
+### Frontend
+
+```bash
+pnpm --filter frontend start
+```
+
+## Licencia
+
+MIT
+```
+
+================================================================================
+
+## PASO 3: Backend - package.json y tsconfig.json
+
+### backend/package.json
+```json
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend API para la Administración de Clientes",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "db:init": "ts-node src/database/init.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "@types/pg": "^8.11.11",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  }
+}
+```
+
+### backend/tsconfig.json
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
+```
+
+================================================================================
+
+## PASO 4: Backend - Models
+
+### backend/src/models/cliente.model.ts
+```typescript
+export interface Cliente {
+  codigoCliente: number;
+  nombreCliente: string;
+  direccionCliente: string;
+  telefonoCliente: string;
+}
+
+export interface ClienteDTO {
+  codigoCliente?: number;
+  nombreCliente: string;
+  direccionCliente: string;
+  telefonoCliente: string;
+}
+
+export interface ApiResponse<T> {
+  success: boolean;
+  data?: T;
+  message?: string;
+  error?: string;
+}
+
+export type CreateClienteDTO = Omit<Cliente, 'codigoCliente'>;
+
+export type UpdateClienteDTO = Partial<Omit<Cliente, 'codigoCliente'>>;
+```
+
+================================================================================
+
+## PASO 5: Backend - Persistence
+
+### backend/src/persistence/database.ts
+```typescript
+import { Pool, PoolConfig } from 'pg';
+
+const poolConfig: PoolConfig = {
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT || '5432', 10),
+  user: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASSWORD || 'postgres',
+  database: process.env.DB_NAME || 'clientes_db',
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
+};
+
+const pool = new Pool(poolConfig);
+
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle client', err);
+  process.exit(-1);
+});
+
+export const query = async <T>(
+  text: string,
+  params?: unknown[]
+): Promise<T[]> => {
+  const client = await pool.connect();
+  try {
+    const result = await client.query(text, params);
+    return result.rows as T[];
+  } finally {
+    client.release();
+  }
+};
+
+export const queryOne = async <T>(
+  text: string,
+  params?: unknown[]
+): Promise<T | null> => {
+  const client = await pool.connect();
+  try {
+    const result = await client.query(text, params);
+    return (result.rows[0] as T) || null;
+  } finally {
+    client.release();
+  }
+};
+
+export const execute = async (
+  text: string,
+  params?: unknown[]
+): Promise<number> => {
+  const client = await pool.connect();
+  try {
+    const result = await client.query(text, params);
+    return result.rowCount || 0;
+  } finally {
+    client.release();
+  }
+};
+
+export const getClient = () => pool.connect();
+
+export default pool;
+```
+
+### backend/src/persistence/cliente.repository.ts
+```typescript
+import { query, queryOne, execute } from './database';
+import { Cliente, CreateClienteDTO } from '../models/cliente.model';
+
+interface ClienteRow {
+  codigo_cliente: number;
+  nombre_cliente: string;
+  direccion_cliente: string;
+  telefono_cliente: string;
+}
+
+const mapRowToCliente = (row: ClienteRow): Cliente => ({
+  codigoCliente: row.codigo_cliente,
+  nombreCliente: row.nombre_cliente,
+  direccionCliente: row.direccion_cliente,
+  telefonoCliente: row.telefono_cliente,
+});
+
+export const findAll = async (): Promise<Cliente[]> => {
+  const rows = await query<ClienteRow>(
+    'SELECT codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente FROM clientes ORDER BY codigo_cliente'
+  );
+  return rows.map(mapRowToCliente);
+};
+
+export const findByCodigo = async (codigo: number): Promise<Cliente | null> => {
+  const row = await queryOne<ClienteRow>(
+    'SELECT codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente FROM clientes WHERE codigo_cliente = $1',
+    [codigo]
+  );
+  return row ? mapRowToCliente(row) : null;
+};
+
+export const create = async (cliente: CreateClienteDTO): Promise<Cliente> => {
+  const row = await queryOne<ClienteRow>(
+    'INSERT INTO clientes (nombre_cliente, direccion_cliente, telefono_cliente) VALUES ($1, $2, $3) RETURNING codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente',
+    [cliente.nombreCliente, cliente.direccionCliente, cliente.telefonoCliente]
+  );
+  if (!row) {
+    throw new Error('Error al crear el cliente');
+  }
+  return mapRowToCliente(row);
+};
+
+export const update = async (
+  codigo: number,
+  cliente: Partial<CreateClienteDTO>
+): Promise<Cliente | null> => {
+  const fields: string[] = [];
+  const values: unknown[] = [];
+  let paramIndex = 1;
+
+  if (cliente.nombreCliente !== undefined) {
+    fields.push(`nombre_cliente = $${paramIndex++}`);
+    values.push(cliente.nombreCliente);
+  }
+  if (cliente.direccionCliente !== undefined) {
+    fields.push(`direccion_cliente = $${paramIndex++}`);
+    values.push(cliente.direccionCliente);
+  }
+  if (cliente.telefonoCliente !== undefined) {
+    fields.push(`telefono_cliente = $${paramIndex++}`);
+    values.push(cliente.telefonoCliente);
+  }
+
+  if (fields.length === 0) {
+    return findByCodigo(codigo);
+  }
+
+  values.push(codigo);
+  const row = await queryOne<ClienteRow>(
+    `UPDATE clientes SET ${fields.join(', ')} WHERE codigo_cliente = $${paramIndex} RETURNING codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente`,
+    values
+  );
+  return row ? mapRowToCliente(row) : null;
+};
+
+export const remove = async (codigo: number): Promise<boolean> => {
+  const rowCount = await execute(
+    'DELETE FROM clientes WHERE codigo_cliente = $1',
+    [codigo]
+  );
+  return rowCount > 0;
+};
+
+export const existsByCodigo = async (codigo: number): Promise<boolean> => {
+  const row = await queryOne<{ count: number }>(
+    'SELECT COUNT(*) as count FROM clientes WHERE codigo_cliente = $1',
+    [codigo]
+  );
+  return row ? parseInt(String(row.count), 10) > 0 : false;
+};
+```
+
+### backend/src/database/init.ts
+```typescript
+import { Pool } from 'pg';
+import * as fs from 'fs';
+import * as path from 'path';
+
+const pool = new Pool({
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT || '5432', 10),
+  user: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASSWORD || 'postgres',
+  database: process.env.DB_NAME || 'clientes_db',
+});
+
+const createTableQuery = `
+  CREATE TABLE IF NOT EXISTS clientes (
+    codigo_cliente SERIAL PRIMARY KEY,
+    nombre_cliente VARCHAR(100) NOT NULL,
+    direccion_cliente VARCHAR(200) NOT NULL,
+    telefono_cliente VARCHAR(20) NOT NULL
+  );
+`;
+
+const seedData = async (): Promise<void> => {
+  const seedPath = path.join(__dirname, '../../data/clientes.json');
+  if (!fs.existsSync(seedPath)) {
+    console.log('No seed data file found');
+    return;
+  }
+
+  const rawData = fs.readFileSync(seedPath, 'utf-8');
+  const clientes = JSON.parse(rawData) as Array<{
+    codigo_cliente: number;
+    nombre_cliente: string;
+    direccion_cliente: string;
+    telefono_cliente: string;
+  }>;
+
+  const client = await pool.connect();
+  try {
+    for (const cliente of clientes) {
+      await client.query(
+        `INSERT INTO clientes (codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente)
+         VALUES ($1, $2, $3, $4)
+         ON CONFLICT (codigo_cliente) DO NOTHING`,
+        [
+          cliente.codigo_cliente,
+          cliente.nombre_cliente,
+          cliente.direccion_cliente,
+          cliente.telefono_cliente,
+        ]
+      );
+    }
+    console.log(`Seeded ${clientes.length} clients`);
+  } finally {
+    client.release();
+  }
+};
+
+const initDatabase = async (): Promise<void> => {
+  try {
+    console.log('Initializing database...');
+    await pool.query(createTableQuery);
+    console.log('Table created successfully');
+
+    console.log('Seeding data...');
+    await seedData();
+
+    console.log('Database initialization completed');
+  } catch (error) {
+    console.error('Error initializing database:', error);
+    throw error;
+  } finally {
+    await pool.end();
+  }
+};
+
+void initDatabase();
+```
+
+================================================================================
+
+## PASO 6: Backend - Controllers
+
+### backend/src/controllers/cliente.controller.ts
+```typescript
+import { Request, Response } from 'express';
+import * as clienteRepository from '../persistence/cliente.repository';
+import { Cliente, ClienteDTO, ApiResponse, CreateClienteDTO } from '../models/cliente.model';
+
+type ValidationErrors = string[];
+
+type RouteParams = { codigo: string };
+
+const parseCodigo = (raw: string | string[]): number => {
+  const value = Array.isArray(raw) ? raw[0] : raw;
+  return parseInt(value, 10);
+};
+
+const validateCliente = (data: ClienteDTO, isUpdate = false): ValidationErrors => {
+  const errors: ValidationErrors = [];
+
+  if (!isUpdate || data.nombreCliente !== undefined) {
+    if (!data.nombreCliente || data.nombreCliente.trim().length === 0) {
+      errors.push('El nombre del cliente es requerido');
+    } else if (data.nombreCliente.length > 100) {
+      errors.push('El nombre del cliente no puede exceder 100 caracteres');
+    }
+  }
+
+  if (!isUpdate || data.direccionCliente !== undefined) {
+    if (!data.direccionCliente || data.direccionCliente.trim().length === 0) {
+      errors.push('La dirección del cliente es requerida');
+    } else if (data.direccionCliente.length > 200) {
+      errors.push('La dirección del cliente no puede exceder 200 caracteres');
+    }
+  }
+
+  if (!isUpdate || data.telefonoCliente !== undefined) {
+    if (!data.telefonoCliente || data.telefonoCliente.trim().length === 0) {
+      errors.push('El teléfono del cliente es requerido');
+    } else if (data.telefonoCliente.length < 7 || data.telefonoCliente.length > 20) {
+      errors.push('El teléfono debe tener entre 7 y 20 caracteres');
+    } else if (!/^[0-9+\-\s()]+$/.test(data.telefonoCliente)) {
+      errors.push('El teléfono solo puede contener números, espacios, guiones, paréntesis y el signo +');
+    }
+  }
+
+  return errors;
+};
+
+export const getAllClientes = async (_req: Request, res: Response): Promise<void> => {
+  try {
+    const clientes = await clienteRepository.findAll();
+    const response: ApiResponse<Cliente[]> = {
+      success: true,
+      data: clientes,
+    };
+    res.json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al obtener los clientes';
+    const response: ApiResponse<never> = {
+      success: false,
+      error: message,
+    };
+    res.status(500).json(response);
+  }
+};
+
+export const getClienteByCodigo = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const codigo = parseCodigo(req.params.codigo);
+    if (isNaN(codigo)) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: 'El código del cliente debe ser un número válido',
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    const cliente = await clienteRepository.findByCodigo(codigo);
+    if (!cliente) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: `No se encontró el cliente con código ${codigo}`,
+      };
+      res.status(404).json(response);
+      return;
+    }
+
+    const response: ApiResponse<Cliente> = {
+      success: true,
+      data: cliente,
+    };
+    res.json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al obtener el cliente';
+    const response: ApiResponse<never> = {
+      success: false,
+      error: message,
+    };
+    res.status(500).json(response);
+  }
+};
+
+export const createCliente = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { nombreCliente, direccionCliente, telefonoCliente } = req.body;
+    const clienteData: ClienteDTO = { nombreCliente, direccionCliente, telefonoCliente };
+
+    const validationErrors = validateCliente(clienteData);
+    if (validationErrors.length > 0) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: validationErrors.join(', '),
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    const newCliente: CreateClienteDTO = {
+      nombreCliente: nombreCliente.trim(),
+      direccionCliente: direccionCliente.trim(),
+      telefonoCliente: telefonoCliente.trim(),
+    };
+
+    const cliente = await clienteRepository.create(newCliente);
+    const response: ApiResponse<Cliente> = {
+      success: true,
+      data: cliente,
+      message: 'Cliente creado exitosamente',
+    };
+    res.status(201).json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al crear el cliente';
+    const response: ApiResponse<never> = {
+      success: false,
+      error: message,
+    };
+    res.status(500).json(response);
+  }
+};
+
+export const updateCliente = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const codigo = parseCodigo(req.params.codigo);
+    if (isNaN(codigo)) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: 'El código del cliente debe ser un número válido',
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    const existingCliente = await clienteRepository.findByCodigo(codigo);
+    if (!existingCliente) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: `No se encontró el cliente con código ${codigo}`,
+      };
+      res.status(404).json(response);
+      return;
+    }
+
+    const { nombreCliente, direccionCliente, telefonoCliente } = req.body;
+    const clienteData: ClienteDTO = { nombreCliente, direccionCliente, telefonoCliente };
+
+    const validationErrors = validateCliente(clienteData, true);
+    if (validationErrors.length > 0) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: validationErrors.join(', '),
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    const updateData: Partial<CreateClienteDTO> = {};
+    if (nombreCliente !== undefined) {
+      updateData.nombreCliente = nombreCliente.trim();
+    }
+    if (direccionCliente !== undefined) {
+      updateData.direccionCliente = direccionCliente.trim();
+    }
+    if (telefonoCliente !== undefined) {
+      updateData.telefonoCliente = telefonoCliente.trim();
+    }
+
+    const cliente = await clienteRepository.update(codigo, updateData);
+    if (!cliente) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: 'Error al actualizar el cliente',
+      };
+      res.status(500).json(response);
+      return;
+    }
+
+    const response: ApiResponse<Cliente> = {
+      success: true,
+      data: cliente,
+      message: 'Cliente actualizado exitosamente',
+    };
+    res.json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al actualizar el cliente';
+    const response: ApiResponse<never> = {
+      success: false,
+      error: message,
+    };
+    res.status(500).json(response);
+  }
+};
+
+export const deleteCliente = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const codigo = parseCodigo(req.params.codigo);
+    if (isNaN(codigo)) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: 'El código del cliente debe ser un número válido',
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    const existingCliente = await clienteRepository.findByCodigo(codigo);
+    if (!existingCliente) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: `No se encontró el cliente con código ${codigo}`,
+      };
+      res.status(404).json(response);
+      return;
+    }
+
+    const deleted = await clienteRepository.remove(codigo);
+    if (!deleted) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: 'Error al eliminar el cliente',
+      };
+      res.status(500).json(response);
+      return;
+    }
+
+    const response: ApiResponse<null> = {
+      success: true,
+      data: null,
+      message: 'Cliente eliminado exitosamente',
+    };
+    res.json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al eliminar el cliente';
+    const response: ApiResponse<never> = {
+      success: false,
+      error: message,
+    };
+    res.status(500).json(response);
+  }
+};
+```
+
+================================================================================
+
+## PASO 7: Backend - Routes y App
+
+### backend/src/routes/cliente.routes.ts
+```typescript
+import { Router } from 'express';
+import * as clienteController from '../controllers/cliente.controller';
+
+const router = Router();
+
+router.get('/', clienteController.getAllClientes);
+router.get('/:codigo', clienteController.getClienteByCodigo);
+router.post('/', clienteController.createCliente);
+router.put('/:codigo', clienteController.updateCliente);
+router.delete('/:codigo', clienteController.deleteCliente);
+
+export default router;
+```
+
+### backend/src/app.ts
+```typescript
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import clienteRoutes from './routes/cliente.routes';
+
+dotenv.config();
+
+const app = express();
+const PORT = parseInt(process.env.PORT || '3000', 10);
+
+app.use(cors({
+  origin: ['http://localhost:4200', 'http://localhost:4300'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/clientes', clienteRoutes);
+
+app.get('/health', (_req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+app.use((
+  err: Error,
+  _req: express.Request,
+  res: express.Response,
+  _next: express.NextFunction
+) => {
+  console.error('Unhandled error:', err);
+  res.status(500).json({
+    success: false,
+    error: 'Error interno del servidor',
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Backend server running on http://localhost:${PORT}`);
+  console.log(`API endpoints available at http://localhost:${PORT}/clientes`);
+});
+
+export default app;
+```
+
+================================================================================
+
+## PASO 8: Backend - Seed Data
+
+### backend/data/clientes.json
+```json
+[
+  {
+    "codigo_cliente": 1,
+    "nombre_cliente": "Empresa ABC S.A.",
+    "direccion_cliente": "Calle Principal 123, Ciudad de México",
+    "telefono_cliente": "+52 55 1234 5678"
+  },
+  {
+    "codigo_cliente": 2,
+    "nombre_cliente": "Distribuidora XYZ",
+    "direccion_cliente": "Av. Reforma 456, Guadalajara",
+    "telefono_cliente": "+52 33 8765 4321"
+  },
+  {
+    "codigo_cliente": 3,
+    "nombre_cliente": "Comercializadora Delta",
+    "direccion_cliente": "Blvd. Industria 789, Monterrey",
+    "telefono_cliente": "+52 81 5555 1234"
+  },
+  {
+    "codigo_cliente": 4,
+    "nombre_cliente": "Tecnología Avanzada S.A. de C.V.",
+    "direccion_cliente": "Calle Innovación 321, Querétaro",
+    "telefono_cliente": "+52 442 987 6543"
+  },
+  {
+    "codigo_cliente": 5,
+    "nombre_cliente": "Servicios Profesionales Lambda",
+    "direccion_cliente": "Av. Universidad 654, Puebla",
+    "telefono_cliente": "+52 222 345 6789"
+  }
+]
+```
+
+================================================================================
+
+## PASO 9: Frontend - Configuración Angular
+
+### frontend/package.json
+```json
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --port 4200",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development"
+  },
+  "dependencies": {
+    "@angular/animations": "^19.1.0",
+    "@angular/common": "^19.1.0",
+    "@angular/compiler": "^19.1.0",
+    "@angular/core": "^19.1.0",
+    "@angular/forms": "^19.1.0",
+    "@angular/platform-browser": "^19.1.0",
+    "@angular/platform-browser-dynamic": "^19.1.0",
+    "@angular/router": "^19.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.1.0",
+    "@angular/cli": "^19.1.0",
+    "@angular/compiler-cli": "^19.1.0",
+    "typescript": "~5.7.0"
+  }
+}
+```
+
+### frontend/angular.json
+```json
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "frontend": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "css",
+          "standalone": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "tsconfig.app.json",
+            "assets": ["src/favicon.ico"],
+            "styles": ["src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "8kB",
+                  "maximumError": "16kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "frontend:build:production"
+            },
+            "development": {
+              "buildTarget": "frontend:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  }
+}
+```
+
+### frontend/tsconfig.json
+```json
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "dom"],
+    "skipLibCheck": true
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}
+```
+
+### frontend/tsconfig.app.json
+```json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "files": ["src/main.ts"],
+  "include": ["src/**/*.d.ts", "src/**/*.ts"]
+}
+```
+
+================================================================================
+
+## PASO 10: Frontend - Archivos fuente Angular
+
+### frontend/src/index.html
+```html
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Clientes App - Administración de Clientes</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+```
+
+### frontend/src/main.ts
+```typescript
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { appConfig } from './app.config';
+
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));
+```
+
+### frontend/src/app.config.ts
+```typescript
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideHttpClient(),
+  ],
+};
+```
+
+### frontend/src/models/cliente.model.ts
+```typescript
+export interface Cliente {
+  codigoCliente: number;
+  nombreCliente: string;
+  direccionCliente: string;
+  telefonoCliente: string;
+}
+
+export interface ClienteDTO {
+  nombreCliente: string;
+  direccionCliente: string;
+  telefonoCliente: string;
+}
+
+export interface ApiResponse<T> {
+  success: boolean;
+  data?: T;
+  message?: string;
+  error?: string;
+}
+```
+
+### frontend/src/services/cliente.service.ts
+```typescript
+import { Injectable, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
+import { Cliente, ClienteDTO, ApiResponse } from '../models/cliente.model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ClienteService {
+  private readonly apiUrl = 'http://localhost:3000/clientes';
+
+  readonly loading = signal<boolean>(false);
+  readonly error = signal<string | null>(null);
+  readonly success = signal<string | null>(null);
+
+  constructor(private http: HttpClient) {}
+
+  getAll(): Observable<ApiResponse<Cliente[]>> {
+    this.loading.set(true);
+    this.error.set(null);
+    return this.http.get<ApiResponse<Cliente[]>>(this.apiUrl).pipe(
+      tap({
+        next: () => this.loading.set(false),
+        error: () => this.loading.set(false),
+      })
+    );
+  }
+
+  getByCodigo(codigo: number): Observable<ApiResponse<Cliente>> {
+    this.loading.set(true);
+    this.error.set(null);
+    return this.http.get<ApiResponse<Cliente>>(`${this.apiUrl}/${codigo}`).pipe(
+      tap({
+        next: () => this.loading.set(false),
+        error: () => this.loading.set(false),
+      })
+    );
+  }
+
+  create(cliente: ClienteDTO): Observable<ApiResponse<Cliente>> {
+    this.loading.set(true);
+    this.error.set(null);
+    this.success.set(null);
+    return this.http.post<ApiResponse<Cliente>>(this.apiUrl, cliente).pipe(
+      tap({
+        next: (response) => {
+          this.loading.set(false);
+          if (response.success && response.message) {
+            this.success.set(response.message);
+          }
+        },
+        error: () => this.loading.set(false),
+      })
+    );
+  }
+
+  update(codigo: number, cliente: ClienteDTO): Observable<ApiResponse<Cliente>> {
+    this.loading.set(true);
+    this.error.set(null);
+    this.success.set(null);
+    return this.http.put<ApiResponse<Cliente>>(`${this.apiUrl}/${codigo}`, cliente).pipe(
+      tap({
+        next: (response) => {
+          this.loading.set(false);
+          if (response.success && response.message) {
+            this.success.set(response.message);
+          }
+        },
+        error: () => this.loading.set(false),
+      })
+    );
+  }
+
+  delete(codigo: number): Observable<ApiResponse<null>> {
+    this.loading.set(true);
+    this.error.set(null);
+    this.success.set(null);
+    return this.http.delete<ApiResponse<null>>(`${this.apiUrl}/${codigo}`).pipe(
+      tap({
+        next: (response) => {
+          this.loading.set(false);
+          if (response.success && response.message) {
+            this.success.set(response.message);
+          }
+        },
+        error: () => this.loading.set(false),
+      })
+    );
+  }
+
+  clearMessages(): void {
+    this.error.set(null);
+    this.success.set(null);
+  }
+
+  setError(message: string): void {
+    this.error.set(message);
+    this.loading.set(false);
+  }
+}
+```
+
+================================================================================
+
+## PASO 11: Frontend - Componente Principal
+
+### frontend/src/app.component.ts
+```typescript
+import { Component } from '@angular/core';
+import { ClienteFormComponent } from './components/cliente-form/cliente-form.component';
+import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
+import { Cliente } from './models/cliente.model';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [ClienteFormComponent, ClienteListComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+})
+export class AppComponent {
+  title = 'Administración de Clientes';
+  clienteSeleccionado: Cliente | null = null;
+
+  onClienteEdit(cliente: Cliente): void {
+    this.clienteSeleccionado = cliente;
+  }
+
+  onClienteSaved(): void {
+    this.clienteSeleccionado = null;
+  }
+
+  onFormCancel(): void {
+    this.clienteSeleccionado = null;
+  }
+}
+```
+
+### frontend/src/app.component.html
+```html
+<div class="app-container">
+  <header class="app-header">
+    <div class="header-content">
+      <div class="logo-section">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+        <div class="title-section">
+          <h1>{{ title }}</h1>
+          <p class="subtitle">Sistema de Gestión Empresarial</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <div class="content-grid">
+      <section class="form-section">
+        <app-cliente-form
+          [cliente]="clienteSeleccionado"
+          (clienteGuardado)="onClienteSaved()"
+          (cancelarEdicion)="onFormCancel()">
+        </app-cliente-form>
+      </section>
+
+      <section class="list-section">
+        <app-cliente-list
+          (editarCliente)="onClienteEdit($event)">
+        </app-cliente-list>
+      </section>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2026 Clientes App. Todos los derechos reservados.</p>
+  </footer>
+</div>
+```
+
+### frontend/src/app.component.css
+```css
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0d1b2a 100%);
+}
+
+.app-header {
+  background: rgba(15, 15, 35, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.logo-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.title-section h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.app-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.form-section,
+.list-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.app-footer {
+  background: rgba(15, 15, 35, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.app-footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-main {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-header {
+    padding: 1rem;
+  }
+
+  .title-section h1 {
+    font-size: 1.25rem;
+  }
+
+  .subtitle {
+    display: none;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+```
+
+================================================================================
+
+## PASO 12: Frontend - Componente cliente-form
+
+### frontend/src/components/cliente-form/cliente-form.component.ts
+```typescript
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClienteService } from '../../services/cliente.service';
+import { Cliente } from '../../models/cliente.model';
+
+@Component({
+  selector: 'app-cliente-form',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './cliente-form.component.html',
+  styleUrl: './cliente-form.component.css',
+})
+export class ClienteFormComponent implements OnChanges {
+  @Input() cliente: Cliente | null = null;
+  @Output() clienteGuardado = new EventEmitter<void>();
+  @Output() cancelarEdicion = new EventEmitter<void>();
+
+  clienteForm: FormGroup;
+  isSubmitting = signal<boolean>(false);
+
+  constructor(
+    private fb: FormBuilder,
+    public clienteService: ClienteService
+  ) {
+    this.clienteForm = this.createForm();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['cliente'] && this.cliente) {
+      this.populateForm(this.cliente);
+    } else if (changes['cliente'] && !this.cliente) {
+      this.resetForm();
+    }
+  }
+
+  private createForm(): FormGroup {
+    return this.fb.group({
+      nombreCliente: ['', [Validators.required, Validators.maxLength(100)]],
+      direccionCliente: ['', [Validators.required, Validators.maxLength(200)]],
+      telefonoCliente: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(7),
+          Validators.maxLength(20),
+          Validators.pattern(/^[0-9+\-\s()]+$/),
+        ],
+      ],
+    });
+  }
+
+  private populateForm(cliente: Cliente): void {
+    this.clienteForm.patchValue({
+      nombreCliente: cliente.nombreCliente,
+      direccionCliente: cliente.direccionCliente,
+      telefonoCliente: cliente.telefonoCliente,
+    });
+  }
+
+  private resetForm(): void {
+    this.clienteForm.reset();
+    this.clienteService.clearMessages();
+  }
+
+  get isEditing(): boolean {
+    return this.cliente !== null;
+  }
+
+  get formTitle(): string {
+    return this.isEditing ? 'Editar Cliente' : 'Nuevo Cliente';
+  }
+
+  get submitButtonText(): string {
+    return this.isEditing ? 'Actualizar' : 'Crear';
+  }
+
+  onSubmit(): void {
+    if (this.clienteForm.invalid) {
+      this.clienteForm.markAllAsTouched();
+      return;
+    }
+
+    this.isSubmitting.set(true);
+    const formData = this.clienteForm.value as Cliente;
+
+    const operation$ = this.isEditing && this.cliente
+      ? this.clienteService.update(this.cliente.codigoCliente, formData)
+      : this.clienteService.create(formData);
+
+    operation$.subscribe({
+      next: (response) => {
+        this.isSubmitting.set(false);
+        if (response.success) {
+          this.resetForm();
+          this.clienteGuardado.emit();
+        } else {
+          this.clienteService.setError(response.error || 'Error al guardar el cliente');
+        }
+      },
+      error: (err) => {
+        this.isSubmitting.set(false);
+        const message = err.error?.error || 'Error de conexión con el servidor';
+        this.clienteService.setError(message);
+      },
+    });
+  }
+
+  onCancel(): void {
+    this.resetForm();
+    this.cancelarEdicion.emit();
+  }
+
+  isFieldInvalid(fieldName: string): boolean {
+    const field = this.clienteForm.get(fieldName);
+    return field !== null && field.invalid && field.touched;
+  }
+
+  getFieldError(fieldName: string): string {
+    const field = this.clienteForm.get(fieldName);
+    if (!field || !field.errors || !field.touched) return '';
+
+    if (field.errors['required']) {
+      return `${this.getFieldLabel(fieldName)} es requerido`;
+    }
+    if (field.errors['maxlength']) {
+      return `${this.getFieldLabel(fieldName)} no puede exceder ${field.errors['maxlength'].requiredLength} caracteres`;
+    }
+    if (field.errors['minlength']) {
+      return `${this.getFieldLabel(fieldName)} debe tener al menos ${field.errors['minlength'].requiredLength} caracteres`;
+    }
+    if (field.errors['pattern']) {
+      return `${this.getFieldLabel(fieldName)} solo puede contener números, espacios, guiones, paréntesis y el signo +`;
+    }
+    return '';
+  }
+
+  private getFieldLabel(fieldName: string): string {
+    const labels: Record<string, string> = {
+      nombreCliente: 'El nombre',
+      direccionCliente: 'La dirección',
+      telefonoCliente: 'El teléfono',
+    };
+    return labels[fieldName] || fieldName;
+  }
+}
+```
+
+### frontend/src/components/cliente-form/cliente-form.component.html
+```html
+<div class="form-card">
+  <div class="form-header">
+    <div class="form-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path *ngIf="!isEditing" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+        <path *ngIf="isEditing" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+      </svg>
+    </div>
+    <h2>{{ formTitle }}</h2>
+  </div>
+
+  <div class="form-messages">
+    <div class="message error" *ngIf="clienteService.error() as error">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+      </svg>
+      <span>{{ error }}</span>
+    </div>
+    <div class="message success" *ngIf="clienteService.success() as success">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+      </svg>
+      <span>{{ success }}</span>
+    </div>
+  </div>
+
+  <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()" class="form-content">
+    <div class="form-group">
+      <label for="nombreCliente">Nombre del Cliente</label>
+      <input
+        type="text"
+        id="nombreCliente"
+        formControlName="nombreCliente"
+        placeholder="Ingrese el nombre del cliente"
+        [class.invalid]="isFieldInvalid('nombreCliente')"
+      />
+      <span class="error-message" *ngIf="isFieldInvalid('nombreCliente')">
+        {{ getFieldError('nombreCliente') }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="direccionCliente">Dirección</label>
+      <input
+        type="text"
+        id="direccionCliente"
+        formControlName="direccionCliente"
+        placeholder="Ingrese la dirección"
+        [class.invalid]="isFieldInvalid('direccionCliente')"
+      />
+      <span class="error-message" *ngIf="isFieldInvalid('direccionCliente')">
+        {{ getFieldError('direccionCliente') }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="telefonoCliente">Teléfono</label>
+      <input
+        type="text"
+        id="telefonoCliente"
+        formControlName="telefonoCliente"
+        placeholder="Ingrese el teléfono"
+        [class.invalid]="isFieldInvalid('telefonoCliente')"
+      />
+      <span class="error-message" *ngIf="isFieldInvalid('telefonoCliente')">
+        {{ getFieldError('telefonoCliente') }}
+      </span>
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="onCancel()"
+        *ngIf="isEditing">
+        Cancelar
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="isSubmitting()">
+        <span class="spinner" *ngIf="isSubmitting()"></span>
+        {{ submitButtonText }}
+      </button>
+    </div>
+  </form>
+</div>
+```
+
+### frontend/src/components/cliente-form/cliente-form.component.css
+```css
+.form-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.form-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.form-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.form-messages {
+  margin-bottom: 1.5rem;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  animation: slideIn 0.3s ease;
+}
+
+.message svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.message.error {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.message.success {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #86efac;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group input {
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.form-group input:focus {
+  border-color: rgba(102, 126, 234, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group input.invalid {
+  border-color: rgba(239, 68, 68, 0.5);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.form-group input.invalid:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+  font-size: 0.8125rem;
+  color: #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  padding: 0.875rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  flex: 1;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .form-card {
+    padding: 1.25rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+```
+
+================================================================================
+
+## PASO 13: Frontend - Componente cliente-list
+
+### frontend/src/components/cliente-list/cliente-list.component.ts
+```typescript
+import { Component, EventEmitter, OnInit, Output, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ClienteService } from '../../services/cliente.service';
+import { Cliente } from '../../models/cliente.model';
+
+@Component({
+  selector: 'app-cliente-list',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './cliente-list.component.html',
+  styleUrl: './cliente-list.component.css',
+})
+export class ClienteListComponent implements OnInit {
+  @Output() editarCliente = new EventEmitter<Cliente>();
+
+  clientes = signal<Cliente[]>([]);
+  confirmDelete = signal<Cliente | null>(null);
+
+  constructor(public clienteService: ClienteService) {}
+
+  ngOnInit(): void {
+    this.loadClientes();
+  }
+
+  loadClientes(): void {
+    this.clienteService.getAll().subscribe({
+      next: (response) => {
+        if (response.success && response.data) {
+          this.clientes.set(response.data);
+        } else {
+          this.clienteService.setError(response.error || 'Error al cargar los clientes');
+        }
+      },
+      error: (err) => {
+        const message = err.error?.error || 'Error de conexión con el servidor';
+        this.clienteService.setError(message);
+      },
+    });
+  }
+
+  onEdit(cliente: Cliente): void {
+    this.editarCliente.emit(cliente);
+  }
+
+  requestDelete(cliente: Cliente): void {
+    this.confirmDelete.set(cliente);
+  }
+
+  confirmDeleteAction(): void {
+    const cliente = this.confirmDelete();
+    if (!cliente) return;
+
+    this.clienteService.delete(cliente.codigoCliente).subscribe({
+      next: (response) => {
+        if (response.success) {
+          this.loadClientes();
+        } else {
+          this.clienteService.setError(response.error || 'Error al eliminar el cliente');
+        }
+        this.confirmDelete.set(null);
+      },
+      error: (err) => {
+        const message = err.error?.error || 'Error de conexión con el servidor';
+        this.clienteService.setError(message);
+        this.confirmDelete.set(null);
+      },
+    });
+  }
+
+  cancelDelete(): void {
+    this.confirmDelete.set(null);
+  }
+
+  formatTelefono(telefono: string): string {
+    return telefono;
+  }
+
+  trackByCodigo(_index: number, cliente: Cliente): number {
+    return cliente.codigoCliente;
+  }
+}
+```
+
+### frontend/src/components/cliente-list/cliente-list.component.html
+```html
+<div class="list-card">
+  <div class="list-header">
+    <div class="header-left">
+      <div class="list-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+        </svg>
+      </div>
+      <h2>Lista de Clientes</h2>
+    </div>
+    <button class="btn-refresh" (click)="loadClientes()" [disabled]="clienteService.loading()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" [class.spinning]="clienteService.loading()">
+        <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="table-container">
+    <div class="loading-overlay" *ngIf="clienteService.loading()">
+      <div class="loading-spinner"></div>
+      <span>Cargando clientes...</span>
+    </div>
+
+    <div class="empty-state" *ngIf="!clienteService.loading() && clientes().length === 0">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+      <p>No hay clientes registrados</p>
+      <span>Use el formulario para agregar un nuevo cliente</span>
+    </div>
+
+    <table class="client-table" *ngIf="!clienteService.loading() && clientes().length > 0">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th class="actions-column">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes(); trackBy: trackByCodigo" class="table-row">
+          <td>
+            <span class="codigo-badge">{{ cliente.codigoCliente }}</span>
+          </td>
+          <td>
+            <span class="cell-primary">{{ cliente.nombreCliente }}</span>
+          </td>
+          <td>
+            <span class="cell-secondary">{{ cliente.direccionCliente }}</span>
+          </td>
+          <td>
+            <span class="cell-secondary">{{ formatTelefono(cliente.telefonoCliente) }}</span>
+          </td>
+          <td class="actions-cell">
+            <button class="btn-action btn-edit" (click)="onEdit(cliente)" title="Editar cliente">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+              </svg>
+            </button>
+            <button class="btn-action btn-delete" (click)="requestDelete(cliente)" title="Eliminar cliente">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="confirmDelete() as cliente" (click)="cancelDelete()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+      </svg>
+    </div>
+    <h3>Confirmar Eliminación</h3>
+    <p>¿Está seguro que desea eliminar al cliente <strong>{{ cliente.nombreCliente }}</strong>?</p>
+    <p class="modal-warning">Esta acción no se puede deshacer.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" (click)="cancelDelete()">Cancelar</button>
+      <button class="btn btn-danger" (click)="confirmDeleteAction()">Eliminar</button>
+    </div>
+  </div>
+</div>
+```
+
+### frontend/src/components/cliente-list/cliente-list.component.css
+```css
+.list-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.list-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.list-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.list-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.btn-refresh {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-refresh:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.btn-refresh:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-refresh svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.btn-refresh svg.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.table-container {
+  position: relative;
+  min-height: 200px;
+}
+
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: rgba(15, 15, 35, 0.8);
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loading-overlay span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.empty-state svg {
+  width: 64px;
+  height: 64px;
+  color: rgba(255, 255, 255, 0.15);
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.empty-state span {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.client-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.client-table thead {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.client-table th {
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.table-row {
+  transition: background 0.2s ease;
+}
+
+.table-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.client-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: middle;
+}
+
+.codigo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  padding: 0.375rem 0.75rem;
+  background: rgba(102, 126, 234, 0.15);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #a5b4fc;
+}
+
+.cell-primary {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cell-secondary {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+}
+
+.actions-column {
+  text-align: right;
+}
+
+.actions-cell {
+  text-align: right;
+}
+
+.btn-action {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 0.5rem;
+}
+
+.btn-action svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn-edit {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.btn-edit:hover {
+  background: rgba(59, 130, 246, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-delete {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.btn-delete:hover {
+  background: rgba(239, 68, 68, 0.25);
+  transform: translateY(-1px);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #1a1a3e 0%, #0d1b2a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: #fca5a5;
+}
+
+.modal-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.modal-content h3 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.modal-content p {
+  margin: 0 0 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.modal-content strong {
+  color: #ffffff;
+}
+
+.modal-warning {
+  font-size: 0.8125rem !important;
+  color: rgba(239, 68, 68, 0.8) !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modal-actions .btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  min-width: 100px;
+}
+
+.modal-actions .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.modal-actions .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.modal-actions .btn-danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.modal-actions .btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+@media (max-width: 768px) {
+  .client-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .btn-refresh {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .list-card {
+    padding: 1rem;
+  }
+
+  .client-table th,
+  .client-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8125rem;
+  }
+
+  .btn-action {
+    width: 32px;
+    height: 32px;
+  }
+
+  .btn-action svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .btn-action {
+    margin-left: 0.25rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-actions .btn {
+    width: 100%;
+  }
+}
+```
+
+================================================================================
+
+## PASO 14: Frontend - Estilos globales
+
+### frontend/src/styles.css
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: #0f0f23;
+  color: #ffffff;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+```
+
+================================================================================
+
+## PASO 15: Scripts SQL
+
+### backend/sql/01-create-database.sql
+```sql
+-- ============================================================
+-- Script: Crear base de datos
+-- Descripción: Crea la base de datos clientes_db si no existe
+-- ============================================================
+
+SELECT 'CREATE DATABASE clientes_db'
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'clientes_db')\gexec
+
+\echo 'Base de datos clientes_db verificada/creada exitosamente'
+```
+
+### backend/sql/02-create-tables.sql
+```sql
+-- ============================================================
+-- Script: Crear tablas
+-- Descripción: Crea las tablas necesarias para el sistema
+-- ============================================================
+
+-- Eliminar tabla si existe (orden por dependencias)
+DROP TABLE IF EXISTS clientes CASCADE;
+
+-- Crear tabla clientes
+CREATE TABLE clientes (
+    codigo_cliente SERIAL PRIMARY KEY,
+    nombre_cliente VARCHAR(100) NOT NULL,
+    direccion_cliente VARCHAR(200) NOT NULL,
+    telefono_cliente VARCHAR(20) NOT NULL
+);
+
+-- Crear índices para búsquedas frecuentes
+CREATE INDEX IF NOT EXISTS idx_clientes_nombre ON clientes(nombre_cliente);
+CREATE INDEX IF NOT EXISTS idx_clientes_telefono ON clientes(telefono_cliente);
+
+-- Comentarios en la tabla y columnas
+COMMENT ON TABLE clientes IS 'Tabla que almacena la información de los clientes';
+COMMENT ON COLUMN clientes.codigo_cliente IS 'Código único identificador del cliente (autoincremental)';
+COMMENT ON COLUMN clientes.nombre_cliente IS 'Nombre o razón social del cliente';
+COMMENT ON COLUMN clientes.direccion_cliente IS 'Dirección fiscal o de contacto del cliente';
+COMMENT ON COLUMN clientes.telefono_cliente IS 'Número de teléfono de contacto del cliente';
+
+\echo 'Tabla clientes creada exitosamente'
+```
+
+================================================================================
+
+## PASO 16: Verificación
+
+### Compilación Backend
+```bash
+$ cd /home/mj_ddk/gestion/clientes-app/backend && npx tsc --noEmit
+# (sin errores)
+```
+
+### Build Frontend
+```bash
+$ cd /home/mj_ddk/gestion/clientes-app/frontend && npx ng build
+# Application bundle generation complete.
+# Initial total: 243.12 kB | Estimated transfer size: 67.04 kB
+```
+
+### Instalación de dependencias
+```bash
+$ cd /home/mj_ddk/gestion/clientes-app && pnpm install
+# Packages: +831
+```
+
+================================================================================
+
+## ARCHIVOS DEL PROYECTO
+
+```
+clientes-app/
+├── .env
+├── .env.example
+├── .gitignore
+├── README.md
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+│
+├── backend/
+│   ├── data/
+│   │   └── clientes.json
+│   ├── sql/
+│   │   ├── 01-create-database.sql
+│   │   └── 02-create-tables.sql
+│   ├── src/
+│   │   ├── app.ts
+│   │   ├── controllers/
+│   │   │   └── cliente.controller.ts
+│   │   ├── database/
+│   │   │   └── init.ts
+│   │   ├── models/
+│   │   │   └── cliente.model.ts
+│   │   ├── persistence/
+│   │   │   ├── cliente.repository.ts
+│   │   │   └── database.ts
+│   │   └── routes/
+│   │       └── cliente.routes.ts
+│   ├── package.json
+│   └── tsconfig.json
+│
+└── frontend/
+    ├── angular.json
+    ├── package.json
+    ├── tsconfig.app.json
+    ├── tsconfig.json
+    └── src/
+        ├── index.html
+        ├── main.ts
+        ├── styles.css
+        ├── app.config.ts
+        ├── app.component.ts
+        ├── app.component.html
+        ├── app.component.css
+        ├── models/
+        │   └── cliente.model.ts
+        ├── services/
+        │   └── cliente.service.ts
+        └── components/
+            ├── cliente-form/
+            │   ├── cliente-form.component.ts
+            │   ├── cliente-form.component.html
+            │   └── cliente-form.component.css
+            └── cliente-list/
+                ├── cliente-list.component.ts
+                ├── cliente-list.component.html
+                └── cliente-list.component.css
+```
+
+================================================================================
+                  CONTINUACIÓN - ROUND 2: Scripts SQL
+================================================================================
+
+USUARIO:
+y los scripts sql?
+
+================================================================================
+
+ASISTENTE:
+Cierto, faltan los scripts SQL. Los creo ahora.
+
+### backend/sql/01-create-database.sql
+```sql
+-- ============================================================
+-- Script: Crear base de datos
+-- Descripción: Crea la base de datos clientes_db si no existe
+-- ============================================================
+
+SELECT 'CREATE DATABASE clientes_db'
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'clientes_db')\gexec
+
+\echo 'Base de datos clientes_db verificada/creada exitosamente'
+```
+
+### backend/sql/02-create-tables.sql
+```sql
+-- ============================================================
+-- Script: Crear tablas
+-- Descripción: Crea las tablas necesarias para el sistema
+-- ============================================================
+
+-- Eliminar tabla si existe (orden por dependencias)
+DROP TABLE IF EXISTS clientes CASCADE;
+
+-- Crear tabla clientes
+CREATE TABLE clientes (
+    codigo_cliente SERIAL PRIMARY KEY,
+    nombre_cliente VARCHAR(100) NOT NULL,
+    direccion_cliente VARCHAR(200) NOT NULL,
+    telefono_cliente VARCHAR(20) NOT NULL
+);
+
+-- Crear índices para búsquedas frecuentes
+CREATE INDEX IF NOT EXISTS idx_clientes_nombre ON clientes(nombre_cliente);
+CREATE INDEX IF NOT EXISTS idx_clientes_telefono ON clientes(telefono_cliente);
+
+-- Comentarios en la tabla y columnas
+COMMENT ON TABLE clientes IS 'Tabla que almacena la información de los clientes';
+COMMENT ON COLUMN clientes.codigo_cliente IS 'Código único identificador del cliente (autoincremental)';
+COMMENT ON COLUMN clientes.nombre_cliente IS 'Nombre o razón social del cliente';
+COMMENT ON COLUMN clientes.direccion_cliente IS 'Dirección fiscal o de contacto del cliente';
+COMMENT ON COLUMN clientes.telefono_cliente IS 'Número de teléfono de contacto del cliente';
+
+\echo 'Tabla clientes creada exitosamente'
+```
+
+================================================================================
+                  CONTINUACIÓN - ROUND 3: Historial a TXT
+================================================================================
+
+USUARIO:
+pon todo el historial del chat en un txt
+
+================================================================================
+
+ASISTENTE:
+Archivo creado en `clientes-app/historial-chat.txt` con el historial completo del chat.
+
+================================================================================
+                  CONTINUACIÓN - ROUND 4: SERIAL autoincrementable
+================================================================================
+
+USUARIO:
+el codigo de cliente es autoincrementable?
+
+================================================================================
+
+ASISTENTE:
+Sí, es autoincrementable. La columna usa `SERIAL` en PostgreSQL:
+
+```sql
+codigo_cliente SERIAL PRIMARY KEY
+```
+
+El `INSERT` en el repositorio (`cliente.repository.ts:29`) no incluye `codigo_cliente` — PostgreSQL genera el valor automáticamente:
+
+```sql
+INSERT INTO clientes (nombre_cliente, direccion_cliente, telefono_cliente) VALUES ($1, $2, $3) RETURNING ...
+```
+
+Y el DTO de creación excluye el código:
+
+```typescript
+export type CreateClienteDTO = Omit<Cliente, 'codigoCliente'>;
+```
+
+El frontend tampoco lo solicita en el formulario.
+
+================================================================================
+                  CONTINUACIÓN - ROUND 5: Llave duplicada
+================================================================================
+
+USUARIO:
+al intentar agregar un cliente desde la web indica llave duplicada viola restricción de unicidad «clientes_pkey»
+
+================================================================================
+
+ASISTENTE:
+El problema es que la semilla inserta clientes con `codigo_cliente` explícitos (1-5), pero la secuencia `SERIAL` no se actualiza y empieza en 1, causando el conflicto.
+
+Se actualizó `backend/src/database/init.ts` para sincronizar la secuencia después de insertar la semilla:
+
+```typescript
+console.log('Resetting sequence...');
+await pool.query(
+  `SELECT setval('clientes_codigo_cliente_seq', COALESCE((SELECT MAX(codigo_cliente) FROM clientes), 1))`
+);
+console.log('Sequence reset successfully');
+```
+
+También se crearon scripts SQL faltantes:
+
+### backend/sql/03-seed-data.sql
+```sql
+-- ============================================================
+-- Script: Datos iniciales (seed)
+-- Descripción: Inserta clientes de ejemplo
+-- ============================================================
+
+INSERT INTO clientes (codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente)
+VALUES
+  (1, 'Empresa ABC S.A.',         'Calle Principal 123, Ciudad de México',     '+52 55 1234 5678'),
+  (2, 'Distribuidora XYZ',         'Av. Reforma 456, Guadalajara',              '+52 33 8765 4321'),
+  (3, 'Comercializadora Delta',    'Blvd. Industria 789, Monterrey',            '+52 81 5555 1234'),
+  (4, 'Tecnología Avanzada S.A. de C.V.', 'Calle Innovación 321, Querétaro',   '+52 442 987 6543'),
+  (5, 'Servicios Profesionales Lambda',   'Av. Universidad 654, Puebla',        '+52 222 345 6789')
+ON CONFLICT (codigo_cliente) DO NOTHING;
+
+-- Sincronizar la secuencia SERIAL con el máximo valor insertado
+SELECT setval('clientes_codigo_cliente_seq', COALESCE((SELECT MAX(codigo_cliente) FROM clientes), 1));
+
+\echo 'Datos iniciales insertados y secuencia sincronizada'
+```
+
+### backend/sql/04-reset-sequence.sql
+```sql
+-- ============================================================
+-- Script: Reiniciar secuencia
+-- Descripción: Sincroniza la secuencia SERIAL con el máximo
+--              codigo_cliente existente en la tabla.
+--              Ejecutar después de inserts con ID explícito.
+-- ============================================================
+
+SELECT setval('clientes_codigo_cliente_seq', COALESCE((SELECT MAX(codigo_cliente) FROM clientes), 1));
+
+\echo 'Secuencia clientes_codigo_cliente_seq reiniciada'
+```
+
+Se agregó script en `backend/package.json`:
+
+```json
+"db:reset-sequence": "psql -U postgres -d clientes_db -f sql/04-reset-sequence.sql"
+```
+
+Para arreglar la DB existente, ejecutar:
+
+```sql
+SELECT setval('clientes_codigo_cliente_seq', COALESCE((SELECT MAX(codigo_cliente) FROM clientes), 1));
+```
+
+O desde terminal:
+
+```bash
+pnpm --filter backend db:reset-sequence
+```
+
+================================================================================
+                  CONTINUACIÓN - ROUND 6: Recarga automática
+================================================================================
+
+USUARIO:
+funciona, ahora al agregar un cliente se debe actualizar la lista automaticamente
+
+================================================================================
+
+ASISTENTE:
+Se agregó un signal de recarga en el servicio y el componente lista lo escucha con `effect()`.
+
+### Cambios en `frontend/src/services/cliente.service.ts`
+
+Se agregó signal:
+
+```typescript
+readonly clientesActualizados = signal<number>(0);
+```
+
+Se modificaron los métodos `create()`, `update()` y `delete()` para incrementar el signal al tener éxito:
+
+```typescript
+next: (response) => {
+  this.loading.set(false);
+  if (response.success) {
+    this.clientesActualizados.update(v => v + 1);
+    if (response.message) {
+      this.success.set(response.message);
+    }
+  }
+},
+```
+
+### Cambios en `frontend/src/components/cliente-list/cliente-list.component.ts`
+
+Se agregó import de `effect`:
+
+```typescript
+import { Component, effect, EventEmitter, OnInit, Output, signal } from '@angular/core';
+```
+
+Se agregó `effect()` en el constructor:
+
+```typescript
+constructor(public clienteService: ClienteService) {
+  effect(() => {
+    this.clienteService.clientesActualizados();
+    this.loadClientes();
+  });
+}
+```
+
+### Flujo
+
+1. `ClienteService` — signal `clientesActualizados` se incrementa en `create()`, `update()` y `delete()`
+2. `ClienteListComponent` — `effect()` detecta el cambio y llama `loadClientes()` automáticamente
+3. Al crear, editar o eliminar un cliente, la tabla se recarga sola
+
+================================================================================
+                  CONTINUACIÓN - ROUND 7: Actualizar historial
+================================================================================
+
+USUARIO:
+agrega el nuevo historial del chat al txt
+
+================================================================================
+
+ASISTENTE:
+(Archivo actualizado con todo el historial consolidado)
+
+================================================================================
+                  ARCHIVOS FINALES DEL PROYECTO
+================================================================================
+
+```
+clientes-app/
+├── .env
+├── .env.example
+├── .gitignore
+├── README.md
+├── historial-chat.txt
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+│
+├── backend/
+│   ├── data/
+│   │   └── clientes.json
+│   ├── sql/
+│   │   ├── 01-create-database.sql
+│   │   ├── 02-create-tables.sql
+│   │   ├── 03-seed-data.sql
+│   │   └── 04-reset-sequence.sql
+│   ├── src/
+│   │   ├── app.ts
+│   │   ├── controllers/
+│   │   │   └── cliente.controller.ts
+│   │   ├── database/
+│   │   │   └── init.ts
+│   │   ├── models/
+│   │   │   └── cliente.model.ts
+│   │   ├── persistence/
+│   │   │   ├── cliente.repository.ts
+│   │   │   └── database.ts
+│   │   └── routes/
+│   │       └── cliente.routes.ts
+│   ├── package.json
+│   └── tsconfig.json
+│
+└── frontend/
+    ├── angular.json
+    ├── package.json
+    ├── tsconfig.app.json
+    ├── tsconfig.json
+    └── src/
+        ├── index.html
+        ├── main.ts
+        ├── styles.css
+        ├── app.config.ts
+        ├── app.component.ts
+        ├── app.component.html
+        ├── app.component.css
+        ├── models/
+        │   └── cliente.model.ts
+        ├── services/
+        │   └── cliente.service.ts
+        └── components/
+            ├── cliente-form/
+            │   ├── cliente-form.component.ts
+            │   ├── cliente-form.component.html
+            │   └── cliente-form.component.css
+            └── cliente-list/
+                ├── cliente-list.component.ts
+                ├── cliente-list.component.html
+                └── cliente-list.component.css
+```
+
+================================================================================
+                    ARCHIVOS FINALES - CÓDIGO COMPLETO
+================================================================================
+
+### backend/package.json
+```json
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend API para la Administración de Clientes",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "db:init": "ts-node src/database/init.ts",
+    "db:reset-sequence": "psql -U postgres -d clientes_db -f sql/04-reset-sequence.sql"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "@types/pg": "^8.11.11",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  }
+}
+```
+
+### backend/tsconfig.json
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
+```
+
+### backend/src/models/cliente.model.ts
+```typescript
+export interface Cliente {
+  codigoCliente: number;
+  nombreCliente: string;
+  direccionCliente: string;
+  telefonoCliente: string;
+}
+
+export interface ClienteDTO {
+  codigoCliente?: number;
+  nombreCliente: string;
+  direccionCliente: string;
+  telefonoCliente: string;
+}
+
+export interface ApiResponse<T> {
+  success: boolean;
+  data?: T;
+  message?: string;
+  error?: string;
+}
+
+export type CreateClienteDTO = Omit<Cliente, 'codigoCliente'>;
+
+export type UpdateClienteDTO = Partial<Omit<Cliente, 'codigoCliente'>>;
+```
+
+### backend/src/persistence/database.ts
+```typescript
+import { Pool, PoolConfig } from 'pg';
+
+const poolConfig: PoolConfig = {
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT || '5432', 10),
+  user: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASSWORD || 'postgres',
+  database: process.env.DB_NAME || 'clientes_db',
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
+};
+
+const pool = new Pool(poolConfig);
+
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle client', err);
+  process.exit(-1);
+});
+
+export const query = async <T>(
+  text: string,
+  params?: unknown[]
+): Promise<T[]> => {
+  const client = await pool.connect();
+  try {
+    const result = await client.query(text, params);
+    return result.rows as T[];
+  } finally {
+    client.release();
+  }
+};
+
+export const queryOne = async <T>(
+  text: string,
+  params?: unknown[]
+): Promise<T | null> => {
+  const client = await pool.connect();
+  try {
+    const result = await client.query(text, params);
+    return (result.rows[0] as T) || null;
+  } finally {
+    client.release();
+  }
+};
+
+export const execute = async (
+  text: string,
+  params?: unknown[]
+): Promise<number> => {
+  const client = await pool.connect();
+  try {
+    const result = await client.query(text, params);
+    return result.rowCount || 0;
+  } finally {
+    client.release();
+  }
+};
+
+export const getClient = () => pool.connect();
+
+export default pool;
+```
+
+### backend/src/persistence/cliente.repository.ts
+```typescript
+import { query, queryOne, execute } from './database';
+import { Cliente, CreateClienteDTO } from '../models/cliente.model';
+
+interface ClienteRow {
+  codigo_cliente: number;
+  nombre_cliente: string;
+  direccion_cliente: string;
+  telefono_cliente: string;
+}
+
+const mapRowToCliente = (row: ClienteRow): Cliente => ({
+  codigoCliente: row.codigo_cliente,
+  nombreCliente: row.nombre_cliente,
+  direccionCliente: row.direccion_cliente,
+  telefonoCliente: row.telefono_cliente,
+});
+
+export const findAll = async (): Promise<Cliente[]> => {
+  const rows = await query<ClienteRow>(
+    'SELECT codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente FROM clientes ORDER BY codigo_cliente'
+  );
+  return rows.map(mapRowToCliente);
+};
+
+export const findByCodigo = async (codigo: number): Promise<Cliente | null> => {
+  const row = await queryOne<ClienteRow>(
+    'SELECT codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente FROM clientes WHERE codigo_cliente = $1',
+    [codigo]
+  );
+  return row ? mapRowToCliente(row) : null;
+};
+
+export const create = async (cliente: CreateClienteDTO): Promise<Cliente> => {
+  const row = await queryOne<ClienteRow>(
+    'INSERT INTO clientes (nombre_cliente, direccion_cliente, telefono_cliente) VALUES ($1, $2, $3) RETURNING codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente',
+    [cliente.nombreCliente, cliente.direccionCliente, cliente.telefonoCliente]
+  );
+  if (!row) {
+    throw new Error('Error al crear el cliente');
+  }
+  return mapRowToCliente(row);
+};
+
+export const update = async (
+  codigo: number,
+  cliente: Partial<CreateClienteDTO>
+): Promise<Cliente | null> => {
+  const fields: string[] = [];
+  const values: unknown[] = [];
+  let paramIndex = 1;
+
+  if (cliente.nombreCliente !== undefined) {
+    fields.push(`nombre_cliente = $${paramIndex++}`);
+    values.push(cliente.nombreCliente);
+  }
+  if (cliente.direccionCliente !== undefined) {
+    fields.push(`direccion_cliente = $${paramIndex++}`);
+    values.push(cliente.direccionCliente);
+  }
+  if (cliente.telefonoCliente !== undefined) {
+    fields.push(`telefono_cliente = $${paramIndex++}`);
+    values.push(cliente.telefonoCliente);
+  }
+
+  if (fields.length === 0) {
+    return findByCodigo(codigo);
+  }
+
+  values.push(codigo);
+  const row = await queryOne<ClienteRow>(
+    `UPDATE clientes SET ${fields.join(', ')} WHERE codigo_cliente = $${paramIndex} RETURNING codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente`,
+    values
+  );
+  return row ? mapRowToCliente(row) : null;
+};
+
+export const remove = async (codigo: number): Promise<boolean> => {
+  const rowCount = await execute(
+    'DELETE FROM clientes WHERE codigo_cliente = $1',
+    [codigo]
+  );
+  return rowCount > 0;
+};
+
+export const existsByCodigo = async (codigo: number): Promise<boolean> => {
+  const row = await queryOne<{ count: number }>(
+    'SELECT COUNT(*) as count FROM clientes WHERE codigo_cliente = $1',
+    [codigo]
+  );
+  return row ? parseInt(String(row.count), 10) > 0 : false;
+};
+```
+
+### backend/src/database/init.ts
+```typescript
+import { Pool } from 'pg';
+import * as fs from 'fs';
+import * as path from 'path';
+
+const pool = new Pool({
+  host: process.env.DB_HOST || '127.0.0.1',
+  port: parseInt(process.env.DB_PORT || '5432', 10),
+  user: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASSWORD || 'admin',
+  database: process.env.DB_NAME || 'clientes_db',
+});
+
+const createTableQuery = `
+  CREATE TABLE IF NOT EXISTS clientes (
+    codigo_cliente SERIAL PRIMARY KEY,
+    nombre_cliente VARCHAR(100) NOT NULL,
+    direccion_cliente VARCHAR(200) NOT NULL,
+    telefono_cliente VARCHAR(20) NOT NULL
+  );
+`;
+
+const seedData = async (): Promise<void> => {
+  const seedPath = path.join(__dirname, '../../data/clientes.json');
+  if (!fs.existsSync(seedPath)) {
+    console.log('No seed data file found');
+    return;
+  }
+
+  const rawData = fs.readFileSync(seedPath, 'utf-8');
+  const clientes = JSON.parse(rawData) as Array<{
+    codigo_cliente: number;
+    nombre_cliente: string;
+    direccion_cliente: string;
+    telefono_cliente: string;
+  }>;
+
+  const client = await pool.connect();
+  try {
+    for (const cliente of clientes) {
+      await client.query(
+        `INSERT INTO clientes (codigo_cliente, nombre_cliente, direccion_cliente, telefono_cliente)
+         VALUES ($1, $2, $3, $4)
+         ON CONFLICT (codigo_cliente) DO NOTHING`,
+        [
+          cliente.codigo_cliente,
+          cliente.nombre_cliente,
+          cliente.direccion_cliente,
+          cliente.telefono_cliente,
+        ]
+      );
+    }
+    console.log(`Seeded ${clientes.length} clients`);
+  } finally {
+    client.release();
+  }
+};
+
+const initDatabase = async (): Promise<void> => {
+  try {
+    console.log('Initializing database...');
+    await pool.query(createTableQuery);
+    console.log('Table created successfully');
+
+    console.log('Seeding data...');
+    await seedData();
+
+    console.log('Resetting sequence...');
+    await pool.query(
+      `SELECT setval('clientes_codigo_cliente_seq', COALESCE((SELECT MAX(codigo_cliente) FROM clientes), 1))`
+    );
+    console.log('Sequence reset successfully');
+
+    console.log('Database initialization completed');
+  } catch (error) {
+    console.error('Error initializing database:', error);
+    throw error;
+  } finally {
+    await pool.end();
+  }
+};
+
+void initDatabase();
+```
+
+### backend/src/controllers/cliente.controller.ts
+```typescript
+import { Request, Response } from 'express';
+import * as clienteRepository from '../persistence/cliente.repository';
+import { Cliente, ClienteDTO, ApiResponse, CreateClienteDTO } from '../models/cliente.model';
+
+type ValidationErrors = string[];
+
+type RouteParams = { codigo: string };
+
+const parseCodigo = (raw: string | string[]): number => {
+  const value = Array.isArray(raw) ? raw[0] : raw;
+  return parseInt(value, 10);
+};
+
+const validateCliente = (data: ClienteDTO, isUpdate = false): ValidationErrors => {
+  const errors: ValidationErrors = [];
+
+  if (!isUpdate || data.nombreCliente !== undefined) {
+    if (!data.nombreCliente || data.nombreCliente.trim().length === 0) {
+      errors.push('El nombre del cliente es requerido');
+    } else if (data.nombreCliente.length > 100) {
+      errors.push('El nombre del cliente no puede exceder 100 caracteres');
+    }
+  }
+
+  if (!isUpdate || data.direccionCliente !== undefined) {
+    if (!data.direccionCliente || data.direccionCliente.trim().length === 0) {
+      errors.push('La dirección del cliente es requerida');
+    } else if (data.direccionCliente.length > 200) {
+      errors.push('La dirección del cliente no puede exceder 200 caracteres');
+    }
+  }
+
+  if (!isUpdate || data.telefonoCliente !== undefined) {
+    if (!data.telefonoCliente || data.telefonoCliente.trim().length === 0) {
+      errors.push('El teléfono del cliente es requerido');
+    } else if (data.telefonoCliente.length < 7 || data.telefonoCliente.length > 20) {
+      errors.push('El teléfono debe tener entre 7 y 20 caracteres');
+    } else if (!/^[0-9+\-\s()]+$/.test(data.telefonoCliente)) {
+      errors.push('El teléfono solo puede contener números, espacios, guiones, paréntesis y el signo +');
+    }
+  }
+
+  return errors;
+};
+
+export const getAllClientes = async (_req: Request, res: Response): Promise<void> => {
+  try {
+    const clientes = await clienteRepository.findAll();
+    const response: ApiResponse<Cliente[]> = {
+      success: true,
+      data: clientes,
+    };
+    res.json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al obtener los clientes';
+    const response: ApiResponse<never> = {
+      success: false,
+      error: message,
+    };
+    res.status(500).json(response);
+  }
+};
+
+export const getClienteByCodigo = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const codigo = parseCodigo(req.params.codigo);
+    if (isNaN(codigo)) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: 'El código del cliente debe ser un número válido',
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    const cliente = await clienteRepository.findByCodigo(codigo);
+    if (!cliente) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: `No se encontró el cliente con código ${codigo}`,
+      };
+      res.status(404).json(response);
+      return;
+    }
+
+    const response: ApiResponse<Cliente> = {
+      success: true,
+      data: cliente,
+    };
+    res.json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al obtener el cliente';
+    const response: ApiResponse<never> = {
+      success: false,
+      error: message,
+    };
+    res.status(500).json(response);
+  }
+};
+
+export const createCliente = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { nombreCliente, direccionCliente, telefonoCliente } = req.body;
+    const clienteData: ClienteDTO = { nombreCliente, direccionCliente, telefonoCliente };
+
+    const validationErrors = validateCliente(clienteData);
+    if (validationErrors.length > 0) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: validationErrors.join(', '),
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    const newCliente: CreateClienteDTO = {
+      nombreCliente: nombreCliente.trim(),
+      direccionCliente: direccionCliente.trim(),
+      telefonoCliente: telefonoCliente.trim(),
+    };
+
+    const cliente = await clienteRepository.create(newCliente);
+    const response: ApiResponse<Cliente> = {
+      success: true,
+      data: cliente,
+      message: 'Cliente creado exitosamente',
+    };
+    res.status(201).json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al crear el cliente';
+    const response: ApiResponse<never> = {
+      success: false,
+      error: message,
+    };
+    res.status(500).json(response);
+  }
+};
+
+export const updateCliente = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const codigo = parseCodigo(req.params.codigo);
+    if (isNaN(codigo)) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: 'El código del cliente debe ser un número válido',
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    const existingCliente = await clienteRepository.findByCodigo(codigo);
+    if (!existingCliente) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: `No se encontró el cliente con código ${codigo}`,
+      };
+      res.status(404).json(response);
+      return;
+    }
+
+    const { nombreCliente, direccionCliente, telefonoCliente } = req.body;
+    const clienteData: ClienteDTO = { nombreCliente, direccionCliente, telefonoCliente };
+
+    const validationErrors = validateCliente(clienteData, true);
+    if (validationErrors.length > 0) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: validationErrors.join(', '),
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    const updateData: Partial<CreateClienteDTO> = {};
+    if (nombreCliente !== undefined) {
+      updateData.nombreCliente = nombreCliente.trim();
+    }
+    if (direccionCliente !== undefined) {
+      updateData.direccionCliente = direccionCliente.trim();
+    }
+    if (telefonoCliente !== undefined) {
+      updateData.telefonoCliente = telefonoCliente.trim();
+    }
+
+    const cliente = await clienteRepository.update(codigo, updateData);
+    if (!cliente) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: 'Error al actualizar el cliente',
+      };
+      res.status(500).json(response);
+      return;
+    }
+
+    const response: ApiResponse<Cliente> = {
+      success: true,
+      data: cliente,
+      message: 'Cliente actualizado exitosamente',
+    };
+    res.json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al actualizar el cliente';
+    const response: ApiResponse<never> = {
+      success: false,
+      error: message,
+    };
+    res.status(500).json(response);
+  }
+};
+
+export const deleteCliente = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const codigo = parseCodigo(req.params.codigo);
+    if (isNaN(codigo)) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: 'El código del cliente debe ser un número válido',
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    const existingCliente = await clienteRepository.findByCodigo(codigo);
+    if (!existingCliente) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: `No se encontró el cliente con código ${codigo}`,
+      };
+      res.status(404).json(response);
+      return;
+    }
+
+    const deleted = await clienteRepository.remove(codigo);
+    if (!deleted) {
+      const response: ApiResponse<never> = {
+        success: false,
+        error: 'Error al eliminar el cliente',
+      };
+      res.status(500).json(response);
+      return;
+    }
+
+    const response: ApiResponse<null> = {
+      success: true,
+      data: null,
+      message: 'Cliente eliminado exitosamente',
+    };
+    res.json(response);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al eliminar el cliente';
+    const response: ApiResponse<never> = {
+      success: false,
+      error: message,
+    };
+    res.status(500).json(response);
+  }
+};
+```
+
+### backend/src/routes/cliente.routes.ts
+```typescript
+import { Router } from 'express';
+import * as clienteController from '../controllers/cliente.controller';
+
+const router = Router();
+
+router.get('/', clienteController.getAllClientes);
+router.get('/:codigo', clienteController.getClienteByCodigo);
+router.post('/', clienteController.createCliente);
+router.put('/:codigo', clienteController.updateCliente);
+router.delete('/:codigo', clienteController.deleteCliente);
+
+export default router;
+```
+
+### backend/src/app.ts
+```typescript
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import clienteRoutes from './routes/cliente.routes';
+
+dotenv.config();
+
+const app = express();
+const PORT = parseInt(process.env.PORT || '3000', 10);
+
+app.use(cors({
+  origin: ['http://localhost:4200', 'http://localhost:4300'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/clientes', clienteRoutes);
+
+app.get('/health', (_req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+app.use((
+  err: Error,
+  _req: express.Request,
+  res: express.Response,
+  _next: express.NextFunction
+) => {
+  console.error('Unhandled error:', err);
+  res.status(500).json({
+    success: false,
+    error: 'Error interno del servidor',
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Backend server running on http://localhost:${PORT}`);
+  console.log(`API endpoints available at http://localhost:${PORT}/clientes`);
+});
+
+export default app;
+```
+
+### frontend/src/services/cliente.service.ts
+```typescript
+import { Injectable, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
+import { Cliente, ClienteDTO, ApiResponse } from '../models/cliente.model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ClienteService {
+  private readonly apiUrl = 'http://localhost:3000/clientes';
+
+  readonly loading = signal<boolean>(false);
+  readonly error = signal<string | null>(null);
+  readonly success = signal<string | null>(null);
+  readonly clientesActualizados = signal<number>(0);
+
+  constructor(private http: HttpClient) {}
+
+  getAll(): Observable<ApiResponse<Cliente[]>> {
+    this.loading.set(true);
+    this.error.set(null);
+    return this.http.get<ApiResponse<Cliente[]>>(this.apiUrl).pipe(
+      tap({
+        next: () => this.loading.set(false),
+        error: () => this.loading.set(false),
+      })
+    );
+  }
+
+  getByCodigo(codigo: number): Observable<ApiResponse<Cliente>> {
+    this.loading.set(true);
+    this.error.set(null);
+    return this.http.get<ApiResponse<Cliente>>(`${this.apiUrl}/${codigo}`).pipe(
+      tap({
+        next: () => this.loading.set(false),
+        error: () => this.loading.set(false),
+      })
+    );
+  }
+
+  create(cliente: ClienteDTO): Observable<ApiResponse<Cliente>> {
+    this.loading.set(true);
+    this.error.set(null);
+    this.success.set(null);
+    return this.http.post<ApiResponse<Cliente>>(this.apiUrl, cliente).pipe(
+      tap({
+        next: (response) => {
+          this.loading.set(false);
+          if (response.success) {
+            this.clientesActualizados.update(v => v + 1);
+            if (response.message) {
+              this.success.set(response.message);
+            }
+          }
+        },
+        error: () => this.loading.set(false),
+      })
+    );
+  }
+
+  update(codigo: number, cliente: ClienteDTO): Observable<ApiResponse<Cliente>> {
+    this.loading.set(true);
+    this.error.set(null);
+    this.success.set(null);
+    return this.http.put<ApiResponse<Cliente>>(`${this.apiUrl}/${codigo}`, cliente).pipe(
+      tap({
+        next: (response) => {
+          this.loading.set(false);
+          if (response.success) {
+            this.clientesActualizados.update(v => v + 1);
+            if (response.message) {
+              this.success.set(response.message);
+            }
+          }
+        },
+        error: () => this.loading.set(false),
+      })
+    );
+  }
+
+  delete(codigo: number): Observable<ApiResponse<null>> {
+    this.loading.set(true);
+    this.error.set(null);
+    this.success.set(null);
+    return this.http.delete<ApiResponse<null>>(`${this.apiUrl}/${codigo}`).pipe(
+      tap({
+        next: (response) => {
+          this.loading.set(false);
+          if (response.success) {
+            this.clientesActualizados.update(v => v + 1);
+            if (response.message) {
+              this.success.set(response.message);
+            }
+          }
+        },
+        error: () => this.loading.set(false),
+      })
+    );
+  }
+
+  clearMessages(): void {
+    this.error.set(null);
+    this.success.set(null);
+  }
+
+  setError(message: string): void {
+    this.error.set(message);
+    this.loading.set(false);
+  }
+}
+```
+
+### frontend/src/components/cliente-list/cliente-list.component.ts
+```typescript
+import { Component, effect, EventEmitter, OnInit, Output, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ClienteService } from '../../services/cliente.service';
+import { Cliente } from '../../models/cliente.model';
+
+@Component({
+  selector: 'app-cliente-list',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './cliente-list.component.html',
+  styleUrl: './cliente-list.component.css',
+})
+export class ClienteListComponent implements OnInit {
+  @Output() editarCliente = new EventEmitter<Cliente>();
+
+  clientes = signal<Cliente[]>([]);
+  confirmDelete = signal<Cliente | null>(null);
+
+  constructor(public clienteService: ClienteService) {
+    effect(() => {
+      this.clienteService.clientesActualizados();
+      this.loadClientes();
+    });
+  }
+
+  ngOnInit(): void {
+    this.loadClientes();
+  }
+
+  loadClientes(): void {
+    this.clienteService.getAll().subscribe({
+      next: (response) => {
+        if (response.success && response.data) {
+          this.clientes.set(response.data);
+        } else {
+          this.clienteService.setError(response.error || 'Error al cargar los clientes');
+        }
+      },
+      error: (err) => {
+        const message = err.error?.error || 'Error de conexión con el servidor';
+        this.clienteService.setError(message);
+      },
+    });
+  }
+
+  onEdit(cliente: Cliente): void {
+    this.editarCliente.emit(cliente);
+  }
+
+  requestDelete(cliente: Cliente): void {
+    this.confirmDelete.set(cliente);
+  }
+
+  confirmDeleteAction(): void {
+    const cliente = this.confirmDelete();
+    if (!cliente) return;
+
+    this.clienteService.delete(cliente.codigoCliente).subscribe({
+      next: (response) => {
+        if (response.success) {
+          this.loadClientes();
+        } else {
+          this.clienteService.setError(response.error || 'Error al eliminar el cliente');
+        }
+        this.confirmDelete.set(null);
+      },
+      error: (err) => {
+        const message = err.error?.error || 'Error de conexión con el servidor';
+        this.clienteService.setError(message);
+        this.confirmDelete.set(null);
+      },
+    });
+  }
+
+  cancelDelete(): void {
+    this.confirmDelete.set(null);
+  }
+
+  formatTelefono(telefono: string): string {
+    return telefono;
+  }
+
+  trackByCodigo(_index: number, cliente: Cliente): number {
+    return cliente.codigoCliente;
+  }
+}
+```
+
+================================================================================
+                          FIN DEL HISTORIAL
+================================================================================

@@ -1,0 +1,39 @@
+<div class="app-container">
+  <header class="app-header">
+    <div class="header-content">
+      <div class="logo-section">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+        <div class="title-section">
+          <h1>{{ title }}</h1>
+          <p class="subtitle">Sistema de Gestión Empresarial</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <div class="content-grid">
+      <section class="form-section">
+        <app-cliente-form
+          [cliente]="clienteSeleccionado"
+          (clienteGuardado)="onClienteSaved()"
+          (cancelarEdicion)="onFormCancel()">
+        </app-cliente-form>
+      </section>
+
+      <section class="list-section">
+        <app-cliente-list
+          (editarCliente)="onClienteEdit($event)">
+        </app-cliente-list>
+      </section>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2026 Clientes App. Todos los derechos reservados.</p>
+  </footer>
+</div>

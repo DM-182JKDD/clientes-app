@@ -1,0 +1,13 @@
+{
+  "name": "clientes-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplicación Full Stack para la Administración de Clientes",
+  "scripts": {
+    "dev": "concurrently --names \"BACKEND,FRONTEND\" --prefix-colors \"blue,green\" \"pnpm --filter backend dev\" \"pnpm --filter frontend start\"",
+    "install:all": "pnpm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

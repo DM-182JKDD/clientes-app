@@ -1,0 +1,87 @@
+<div class="form-card">
+  <div class="form-header">
+    <div class="form-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path *ngIf="!isEditing" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+        <path *ngIf="isEditing" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+      </svg>
+    </div>
+    <h2>{{ formTitle }}</h2>
+  </div>
+
+  <div class="form-messages">
+    <div class="message error" *ngIf="clienteService.error() as error">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+      </svg>
+      <span>{{ error }}</span>
+    </div>
+    <div class="message success" *ngIf="clienteService.success() as success">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+      </svg>
+      <span>{{ success }}</span>
+    </div>
+  </div>
+
+  <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()" class="form-content">
+    <div class="form-group">
+      <label for="nombreCliente">Nombre del Cliente</label>
+      <input
+        type="text"
+        id="nombreCliente"
+        formControlName="nombreCliente"
+        placeholder="Ingrese el nombre del cliente"
+        [class.invalid]="isFieldInvalid('nombreCliente')"
+      />
+      <span class="error-message" *ngIf="isFieldInvalid('nombreCliente')">
+        {{ getFieldError('nombreCliente') }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="direccionCliente">Dirección</label>
+      <input
+        type="text"
+        id="direccionCliente"
+        formControlName="direccionCliente"
+        placeholder="Ingrese la dirección"
+        [class.invalid]="isFieldInvalid('direccionCliente')"
+      />
+      <span class="error-message" *ngIf="isFieldInvalid('direccionCliente')">
+        {{ getFieldError('direccionCliente') }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="telefonoCliente">Teléfono</label>
+      <input
+        type="text"
+        id="telefonoCliente"
+        formControlName="telefonoCliente"
+        placeholder="Ingrese el teléfono"
+        [class.invalid]="isFieldInvalid('telefonoCliente')"
+      />
+      <span class="error-message" *ngIf="isFieldInvalid('telefonoCliente')">
+        {{ getFieldError('telefonoCliente') }}
+      </span>
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="onCancel()"
+        *ngIf="isEditing">
+        Cancelar
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="isSubmitting()">
+        <span class="spinner" *ngIf="isSubmitting()"></span>
+        {{ submitButtonText }}
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,32 @@
+[
+  {
+    "codigo_cliente": 1,
+    "nombre_cliente": "Empresa ABC S.A.",
+    "direccion_cliente": "Calle Principal 123, Ciudad de México",
+    "telefono_cliente": "+52 55 1234 5678"
+  },
+  {
+    "codigo_cliente": 2,
+    "nombre_cliente": "Distribuidora XYZ",
+    "direccion_cliente": "Av. Reforma 456, Guadalajara",
+    "telefono_cliente": "+52 33 8765 4321"
+  },
+  {
+    "codigo_cliente": 3,
+    "nombre_cliente": "Comercializadora Delta",
+    "direccion_cliente": "Blvd. Industria 789, Monterrey",
+    "telefono_cliente": "+52 81 5555 1234"
+  },
+  {
+    "codigo_cliente": 4,
+    "nombre_cliente": "Tecnología Avanzada S.A. de C.V.",
+    "direccion_cliente": "Calle Innovación 321, Querétaro",
+    "telefono_cliente": "+52 442 987 6543"
+  },
+  {
+    "codigo_cliente": 5,
+    "nombre_cliente": "Servicios Profesionales Lambda",
+    "direccion_cliente": "Av. Universidad 654, Puebla",
+    "telefono_cliente": "+52 222 345 6789"
+  }
+]
